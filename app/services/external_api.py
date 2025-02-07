@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 
 def get_external_posts():
     try:
-        response = requests.get("https://jsonplaceholder.typicode.com/posts", timeout=10) #TODO Implementar variables de entorno
+        response = requests.get("https://jsonplaceholder.typicode.com/posts", timeout=10) #TODO Implementar variable de entorno
         if response.status_code == 200:
             data = response.json()
             logger.info("Datos obtenidos exitosamente de la API externa.")
