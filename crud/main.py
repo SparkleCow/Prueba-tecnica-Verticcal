@@ -1,10 +1,12 @@
 from db.connection import DatabaseConnection
 from repositories.lead_repository import LeadRepository
 from services.lead_service import LeadService
+from dotenv import load_dotenv
+import os
 
 # Configuración de la base de datos
-DATABASE_URL = "postgresql://postgres:Borman15@localhost:5432/python"
-
+DATABASE_URL = os.getenv("DATABASE_URL")
+load_dotenv(dotenv_path="../.env") 
 db_connection = DatabaseConnection(DATABASE_URL)
 
 # Inicializar la base de datos
@@ -19,23 +21,13 @@ leads_data = [
     {"id": 6, "name": "Andrés Limas", "location": "Bogotá", "budget": 450000000},
 ]
 
-<<<<<<< HEAD
-=======
-# Insertar leads
->>>>>>> 5ffde82552f75576d4888462c15f9e5fac94c7e7
 session = db_connection.get_session()
 repository = LeadRepository(session)
 service = LeadService(repository)
 
-<<<<<<< HEAD
 # Insertar leads
 try:
     repository.insert_leads(leads_data)
-=======
-try:
-    repository.insert_leads(leads_data)
-    print("Leads insertados exitosamente.")
->>>>>>> 5ffde82552f75576d4888462c15f9e5fac94c7e7
 except ValueError as e:
     print(e)
 
