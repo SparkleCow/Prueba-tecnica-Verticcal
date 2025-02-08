@@ -23,7 +23,7 @@ leads_data = [
 
 session = db_connection.get_session()
 repository = LeadRepository(session)
-service = LeadService(repository)
+lead_service = LeadService(repository)
 
 # Insertar leads
 try:
@@ -31,6 +31,23 @@ try:
 except ValueError as e:
     print(e)
 
-# Procesar y presentar leads
-results = service.process_and_present_leads(location="Medellín", min_budget=200000000, max_budget=600000000)
+print("Resultados filtrados por Budget \n")
+results = lead_service.process_and_present_leads()
+print(results)
+
+print("Resultados filtrados por ciudad \n")
+results = lead_service.process_and_present_leads(location="Medellín")
+print(results)
+
+# Insertar un nuevo lead
+lead = {
+            "name": "Santiago Moreno",
+            "location": "Bogotá",
+            "budget": 700000000
+       }
+#Insertamos un nuevo lead
+lead_service.insert_lead(lead)
+
+print("Resultados filtrados por Budget con el nuevo Lead \n")
+results = lead_service.process_and_present_leads()
 print(results)

@@ -9,7 +9,7 @@ class Lead(Base):
     
     __tablename__ = "leads"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     name = Column(String, index=True)
     location = Column(String, index=True)
     budget = Column(Float)
