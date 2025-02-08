@@ -19,13 +19,23 @@ leads_data = [
     {"id": 6, "name": "Andrés Limas", "location": "Bogotá", "budget": 450000000},
 ]
 
+<<<<<<< HEAD
+=======
+# Insertar leads
+>>>>>>> 5ffde82552f75576d4888462c15f9e5fac94c7e7
 session = db_connection.get_session()
 repository = LeadRepository(session)
 service = LeadService(repository)
 
+<<<<<<< HEAD
 # Insertar leads
 try:
     repository.insert_leads(leads_data)
+=======
+try:
+    repository.insert_leads(leads_data)
+    print("Leads insertados exitosamente.")
+>>>>>>> 5ffde82552f75576d4888462c15f9e5fac94c7e7
 except ValueError as e:
     print(e)
 
