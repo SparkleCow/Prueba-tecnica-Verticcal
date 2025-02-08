@@ -19,14 +19,13 @@ leads_data = [
     {"id": 6, "name": "Andrés Limas", "location": "Bogotá", "budget": 450000000},
 ]
 
-# Insertar leads
 session = db_connection.get_session()
 repository = LeadRepository(session)
 service = LeadService(repository)
 
+# Insertar leads
 try:
     repository.insert_leads(leads_data)
-    print("Leads insertados exitosamente.")
 except ValueError as e:
     print(e)
 
