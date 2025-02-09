@@ -16,15 +16,16 @@
 
 ## Instalación: 
 
-1. Descarga el proyecto: Clona el repositorio con git clone https://github.com/SparkleCow/Python-API.git o descarga el repositorio en formato .rar para poder manipularlo.
+1. Descarga el proyecto: Clona el repositorio con git clone https://github.com/SparkleCow/Prueba-tecnica-Verticcal.git o descarga el repositorio en formato .rar para poder manipularlo.
 2. Crea un entorno virtual (python -m venv nombre_entorno_virtual)
 3. Activa el entorno virtual (nombre_entorno_virtual/Scripts/activate para windows o source nombre_entorno_virtual/bin/activate para linux)
 4. Instalar las dependencias del proyecto (pip install -r requirements.txt)
-5. Crea el archivo .env para las dependencias (DATABASE_URL, POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB, POSTGRES_PORT)
+5. Crea el archivo .env para las variables de entorno (DATABASE_URL, POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB, POSTGRES_PORT)
 7. Crea un contenedor con docker por medio del archivo docker-compose.yml para ejecutar postgres (docker-compose up -d). El archivo docker-compose.yml hace uso del archivo .env
 8. En caso de usar postgres a nivel local, modificar el archivo .env con las credenciales.
-9. Para ver los endpoints disponibles entrar a http://localhost:8000/docs
-10. Para hacer peticiones a la API, utiliza la ruta base http://localhost:8000/api/v1/external-data
+9. Para arrancar el servidor de fastAPI sera necesario emplear Uvicorn (uvicorn app.main:app --reload)
+10. Para ver los endpoints disponibles entrar a http://localhost:8000/docs
+11. Para hacer peticiones a la API, utiliza la ruta base http://localhost:8000/api/v1/external-data
   
 ## Parte A
 
@@ -32,6 +33,9 @@
 2. Creación de una API propia
 
 ## API
+
+La API realizada consume información de JSONPlaceHolder, especificamente de la entidad Post. 
+Por su parte, también modifica y crea estadísticas a partir de los datos recibidos.
 
 ### Modelos
 
